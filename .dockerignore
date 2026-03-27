@@ -1,0 +1,15 @@
+# Build context: keep small; models/repos can be volumes at runtime
+venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.git/
+outputs/
+*.log
+webui-*.log
+models/
+embeddings/
+extensions/
+.cache/
+.huggingface/
+*.partial
