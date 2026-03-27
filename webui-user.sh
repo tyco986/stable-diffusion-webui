@@ -10,7 +10,8 @@
 #clone_dir="stable-diffusion-webui"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
-#export COMMANDLINE_ARGS=""
+# Add --no-download-sd-model to skip the default ~4GB v1-5 download (place your own .ckpt/.safetensors in models/Stable-diffusion/)
+export COMMANDLINE_ARGS="--listen --port 2222"
 
 # python3 executable
 #python_cmd="python3"
@@ -24,8 +25,11 @@
 # script to launch to start the app
 #export LAUNCH_SCRIPT="launch.py"
 
-# install command for torch
-#export TORCH_COMMAND="pip install torch==1.12.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113"
+# RTX 50-series (sm_120): use CUDA 12.8 PyTorch wheels instead of default cu121 / torch 2.1.2
+export TORCH_COMMAND="pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128"
+
+# Default clone URL is camenduru/stablediffusion (same tree & commit cf1d67 as old Stability-AI repo).
+# Override if you mirror elsewhere: export STABLE_DIFFUSION_REPO="https://..."
 
 # Requirements file to use for stable-diffusion-webui
 #export REQS_FILE="requirements_versions.txt"
